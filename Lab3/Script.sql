@@ -22,18 +22,20 @@ create table Sample(
 	siteID varchar(10),
 	Recorded_On varchar(50),
 	Scientist_Num varchar (10),
-	comments varchar (50),
+	comments varchar (50)
 );
 
+select * from Sample;
+
 create table Site(
-	Site_ID(),
-	region varchar(50),
-	Description varchar(50),
-	Latitude varchar(50),
-	Longitude varchar(50),
-	Catchment_Area numeric(50,3),
-	Catchment_Height numeric(10,3),
-	Altitude numeric (1000,3) 
+	Site_ID varchar() not null unique,
+	region varchar(50) not null,
+	Description varchar(50) not null,
+	Latitude numeric(50) not null ,
+	Longitude numeric(50) not null,
+	Catchment_Area numeric(50,3) not null,
+	Catchment_Height numeric(10,3) not null,
+	Altitude numeric (5,3) 
 	
 	
 );
