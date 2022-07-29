@@ -1,5 +1,8 @@
-
+DROP TABLE Sample_Info;
+DROP TABLE Site_Info;
 DROP TABLE Scientist;
+DROP TABLE Measurements;
+DROP TABLE Measurement_Type
 
 -- here we are deleting the table beore begining a new one 
 
@@ -12,7 +15,6 @@ CREATE TABLE Scientist(
 	Mobile_Phone varchar(15)
 ); 
 
-
 -- now we need to insert into scientist some information
 INSERT INTO Scientist (Scientist_Num, Surname, Other_Names, Email, Mobile_Phone) 
 VALUES(123, 'Hankins', 'Stephanie', 'steph@mail.com', '021 123 456');
@@ -22,9 +24,8 @@ select * from Scientist;
 -- viewing the table for scientist 
 
 
-DROP TABLE sample;
--- creating the sample table
-CREATE TABLE sample(
+-- creating the Sample table
+CREATE TABLE Sample_Info(
 	Site_ID varchar(10),
 	Recorded_On varchar(50),
 	Scientist_Num varchar (10),
@@ -34,7 +35,7 @@ CREATE TABLE sample(
 select * from sample;
 -- viewing the sample table 
 
-DROP TABLE Site;
+
 -- creating a table for site 
 CREATE TABLE Site(
 	Site_ID varchar(10),
@@ -48,10 +49,6 @@ CREATE TABLE Site(
 
 );
 
-
-DROP TABLE Measurement;
--- initially getting rid of the table 
-
 -- creating a table for measurement 
 CREATE TABLE Measurement(
 	Site_Id varchar(10),
@@ -59,8 +56,6 @@ CREATE TABLE Measurement(
 	Units varchar(5)
 );
 
-DROP TABLE Measurement_Type;
--- creating a table for measurement type 
 CREATE TABLE Measurement_Type(
 	Measurement_name varchar(50),
 	Units varchar(5)
