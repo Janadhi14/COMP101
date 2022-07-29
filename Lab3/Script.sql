@@ -1,10 +1,11 @@
 
 DROP TABLE Scientist;
+
 -- here we are deleting the table beore begining a new one 
 
 -- now we need to create a scientist table 
 CREATE TABLE Scientist(
-	Scientist_Num varchar(6),
+	Scientist_Num varchar(6) primary key,
 	Surname varchar(50),
 	Other_Names varchar(50),
 	Email varchar(50),
@@ -18,17 +19,20 @@ VALUES(123, 'Hankins', 'Stephanie', 'steph@mail.com', '021 123 456');
 -- we are inserting the following values in this order 
 
 select * from Scientist;
+-- viewing the table for scientist 
 
 
-DROP TABLE Sample;
+DROP TABLE sample;
 -- creating the sample table
-CREATE TABLE Sample(
+CREATE TABLE sample(
 	Site_ID varchar(10),
 	Recorded_On varchar(50),
 	Scientist_Num varchar (10),
-	comments varchar (50),
-);
+	comments varchar (50)
+	);
 
+select * from sample;
+-- viewing the sample table 
 
 DROP TABLE Site;
 -- creating a table for site 
@@ -43,11 +47,14 @@ CREATE TABLE Site(
 	Altitude numeric (1000,3) 
 
 );
+
+
 DROP TABLE Measurement;
+-- initially getting rid of the table 
 
 -- creating a table for measurement 
 CREATE TABLE Measurement(
-	Site_I varchar(10),
+	Site_Id varchar(10),
 	Measurement_name varchar(50),
 	Units varchar(5)
 );
@@ -58,3 +65,5 @@ CREATE TABLE Measurement_Type(
 	Measurement_name varchar(50),
 	Units varchar(5)
 );
+
+
