@@ -22,7 +22,7 @@ INSERT INTO Scientist (Scientist_ID, Surname, Other_Names, Email, Mobile_Phone)
 VALUES(123, 'Hankins', 'Stephanie', 'steph@mail.com', '021 123 456');
 -- we are inserting the following values in this order 
 
-select * from Scientist;
+SELECT * FROM Scientist;
 -- viewing the table for scientist 
 
 
@@ -38,7 +38,7 @@ CREATE TABLE Sample_Info(
 	CONSTRAINT recordedOn CHECK (exact(year from recordedOn)> 2015)			-- checking that the recorded date is later than 2015 
 );
 
-select * from Sample_Info;
+SELECT * FROM Sample_Info;
 -- viewing the Sample_Info table 
 
 
@@ -59,5 +59,5 @@ CREATE TABLE Site(
 );
 
 -- viewing the Site table 
-SELECT * FROM SITE
+SELECT * FROM Site
 
