@@ -6,8 +6,10 @@ DROP TABLE Measurement_Type
 
 -- here we are deleting the table beore begining a new one 
 
+-- we are going to need a unique identifier (primary key) as the scientist_num
 -- now we need to create a scientist table 
 CREATE TABLE Scientist(
+	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_Num) -- setting the primary key as Scientist_num
 	Scientist_Num varchar(6) primary key,
 	Surname varchar(50),
 	Other_Names varchar(50),
@@ -56,9 +58,13 @@ CREATE TABLE Measurement(
 	Units varchar(5)
 );
 
+-- creating a table for measurement 
+
 CREATE TABLE Measurement_Type(
 	Measurement_name varchar(50),
 	Units varchar(5)
 );
 
+
+-- now we need to go in add primary and foreign keys 
 
