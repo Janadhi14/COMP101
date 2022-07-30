@@ -9,16 +9,17 @@ DROP TABLE Measurement_Type
 -- we are going to need a unique identifier (primary key) as the scientist_num
 -- now we need to create a scientist table 
 CREATE TABLE Scientist(
-	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_Num) -- setting the primary key as Scientist_num
-	Scientist_Num varchar(6) primary key,
+	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_ID) -- setting the primary key as Scientist_num
+	Scientist_ID varchar(6) primary key,
 	Surname varchar(50),
 	Other_Names varchar(50),
 	Email varchar(50),
 	Mobile_Phone varchar(15)
+	CONST
 ); 
 
 -- now we need to insert into scientist some information
-INSERT INTO Scientist (Scientist_Num, Surname, Other_Names, Email, Mobile_Phone) 
+INSERT INTO Scientist (Scientist_ID, Surname, Other_Names, Email, Mobile_Phone) 
 VALUES(123, 'Hankins', 'Stephanie', 'steph@mail.com', '021 123 456');
 -- we are inserting the following values in this order 
 
@@ -28,10 +29,13 @@ select * from Scientist;
 
 -- creating the Sample table
 CREATE TABLE Sample_Info(
+	recordedOn timestamp default current_timestamp,
+	Scientist_ID varchar(50) not null,
 	Site_ID varchar(10),
 	Recorded_On varchar(50),
 	Scientist_Num varchar (10),
 	comments varchar (50)
+	CONSTRAINT PK_Sample_info()
 	);
 
 select * from sample;
@@ -40,31 +44,18 @@ select * from sample;
 
 -- creating a table for site 
 CREATE TABLE Site(
-	Site_ID varchar(10),
-	region varchar(50),
-	Site_Description varchar(50),
-	Latitude varchar(50),
-	Longitude varchar(50),
-	Catchment_Area numeric(50,3),
-	Catchment_Height numeric(10,3),
-	Altitude numeric (1000,3) 
+	Site_ID varchar(10) not null unique,
+	Region varchar(10) not null,
+	Site_Description varchar(50) not null,
+	Latitude numeric(11,8) not null,
+	Longitude numeric(11,8) not null ,
+	Catchment_Area numeric(4),
+	Catchment_Height numeric(4),
+	Altitude numeric (4),
+	CONSTRAINT PK_Site PRIMARY KEY(Site_ID),
+	CONSTRAINT Region check (Region IN, ('Dunedin', 'Alexandra', 'Tekapo')),
+	CONSTRAINT Altitude check (Altitude BETWEEN -10 AND 4000)
 
 );
 
--- creating a table for measurement 
-CREATE TABLE Measurement(
-	Site_Id varchar(10),
-	Measurement_name varchar(50),
-	Units varchar(5)
-);
-
--- creating a table for measurement 
-
-CREATE TABLE Measurement_Type(
-	Measurement_name varchar(50),
-	Units varchar(5)
-);
-
-
--- now we need to go in add primary and foreign keys 
 
