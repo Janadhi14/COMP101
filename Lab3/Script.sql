@@ -4,7 +4,7 @@ DROP TABLE Scientist;
 
 -- here we are deleting the table beore begining a new one 
 
--- we are going to need a unique identifier (primary key) as the 
+-- we are going to need a unique identifier (primary key) as the Scientist_ID and name it Scientist_PK 
 -- now we need to create a scientist table 
 CREATE TABLE Scientist(
 	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_ID) -- setting the primary key as Scientist_num
