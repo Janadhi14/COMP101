@@ -1,8 +1,6 @@
 DROP TABLE Sample_Info;
-DROP TABLE Site_Info;
+DROP TABLE Site;
 DROP TABLE Scientist;
-DROP TABLE Measurements;
-DROP TABLE Measurement_Type
 
 -- here we are deleting the table beore begining a new one 
 
@@ -16,7 +14,7 @@ CREATE TABLE Scientist(
 	Email varchar(50),
 	Mobile_Phone varchar(15),
 	CONSTRAINT Scientist_PK PRIMARY KEY (Scientist_ID),
-	CONSTRAINT Email CHECK (EmailLike '%0%')
+	CONSTRAINT Email CHECK (Email LIKE '%0%')
 ); 
 
 -- now we need to insert into scientist some information
