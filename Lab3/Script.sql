@@ -6,7 +6,7 @@ DROP TABLE Measurement_Type
 
 -- here we are deleting the table beore begining a new one 
 
--- we are going to need a unique identifier (primary key) as the scientist_num
+-- we are going to need a unique identifier (primary key) as the 
 -- now we need to create a scientist table 
 CREATE TABLE Scientist(
 	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_ID) -- setting the primary key as Scientist_num
@@ -14,8 +14,9 @@ CREATE TABLE Scientist(
 	Surname varchar(50),
 	Other_Names varchar(50),
 	Email varchar(50),
-	Mobile_Phone varchar(15)
-	CONST
+	Mobile_Phone varchar(15),
+	CONSTRAINT Scientist_PK PRIMARY KEY (Scientist_ID),
+	CONSTRAINT Email CHECK (EmailLike '%0%')
 ); 
 
 -- now we need to insert into scientist some information
@@ -27,19 +28,20 @@ select * from Scientist;
 -- viewing the table for scientist 
 
 
--- creating the Sample table
+-- creating the Sample_Info table
 CREATE TABLE Sample_Info(
 	recordedOn timestamp default current_timestamp,
 	Scientist_ID varchar(50) not null,
-	Site_ID varchar(10),
-	Recorded_On varchar(50),
-	Scientist_Num varchar (10),
-	comments varchar (50)
-	CONSTRAINT PK_Sample_info()
-	);
+	Site_ID varchar(10) not null,
+	Comments_On varchar (50)
+	CONSTRAINT Sample_Info_PK PRIMARY KEY (recordedOn, Scientist_ID), 
+	CONSTRAINT Sample_Info_Scientist_FK1 FOREIGN KEY (Scientist_ID),
+		reference (Scientist_),
+	CONSTRAINT recordedOn CHECK (exact(year from recordedOn)> 2015)			-- checking that the recorded date is later than 2015 
+);
 
-select * from sample;
--- viewing the sample table 
+select * from Sample_Info;
+-- viewing the Sample_Info table 
 
 
 -- creating a table for site 
