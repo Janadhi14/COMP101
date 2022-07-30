@@ -9,7 +9,7 @@ DROP TABLE Scientist;
 CREATE TABLE Scientist(
 	CONSTRAINT PK_Scientist PRIMARY KEY (Scientist_ID) -- setting the primary key as Scientist_num
 	Scientist_ID varchar(6) primary key,
-	Surname varchar(50),
+	Surname varchar(50), 
 	Other_Names varchar(50),
 	Email varchar(50),
 	Mobile_Phone varchar(15),
@@ -58,4 +58,6 @@ CREATE TABLE Site(
 
 );
 
+-- viewing the Site table 
+SELECT * FROM SITE
 
