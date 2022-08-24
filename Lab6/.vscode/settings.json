@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": " isdb.uod.otago.ac.nz",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "password": "aiqu3aaquie3",
+            "username": "disja508",
+            "database": "comp101",
+            "name": " isdb.uod.otago.ac.nz"
+        }
+    ]
+}
