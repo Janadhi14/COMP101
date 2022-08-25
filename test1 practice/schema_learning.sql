@@ -32,11 +32,6 @@ CREATE TABLE Enrolment(
         CONSTRAINT Valid_Mark CHECK (Mark BETWEEN 0 AND 100), 
     Absent CHAR(1) DEFAULT 'N' NOT NULL,
         CONSTRAINT Valid_Absent CHECK (Absent IN ('Y','N'))
-
-    
-    
-
-
     CONSTRAINT PK_Enrolment PRIMARY KEY (Paper_Code,Student_Id,Year,Semester),
 
     CONSTRAINT FK_Enrolment_Student FOREIGN KEY (Student_Id)
@@ -47,8 +42,6 @@ CREATE TABLE Enrolment(
 
     CONSTRIANT Valid_Mark
         CHECK (Mark BETWEEN 0 AND 100),
-
-
 
 );
 -- we still need to insert integrity rules 
